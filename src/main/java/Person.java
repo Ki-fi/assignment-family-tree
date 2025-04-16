@@ -14,6 +14,7 @@ public class Person {
     boolean isDeceased;
     List<Person> children;
     List<Person> parents;
+    List<Person> siblings;
 
     public Person() {
     }
@@ -26,15 +27,14 @@ public class Person {
         this.age = age;
         isDeceased = false;
         this.children = new ArrayList<>();
+        this.parents = new ArrayList<>();
+        this.siblings = new ArrayList<>();
+        this.pets = new ArrayList<>();
     }
 
     public void personInformation(){
         System.out.println(name + " " + lastName + ", " + sex + ", " + displayAge());
     }
-
-//    public String displayName(){
-//        return hasMiddleName ? "-" : String.valueOf(age);
-//    }
 
     public String displayAge(){
         if (isDeceased) {
@@ -76,6 +76,49 @@ public class Person {
             }
         }
     }
+
+    public void addSibling(Person sibling) {
+        siblings.add(sibling);
+    }
+
+    public void printSiblings() {
+        if (siblings.isEmpty()) {
+            System.out.println("No siblings");
+        } else {
+            System.out.println(name + "'s siblings: ");
+            for (int i = 0; i < siblings.size(); i++) {
+                Person sibling = siblings.get(i);
+                System.out.println("- " + sibling.name);
+            }
+        }
+    }
+
+    public void addPet(Pet animal) {
+        pets.add(animal);
+    }
+
+    public void hasGrandKids(Person person) {
+
+        if (children.isEmpty()) {
+            System.out.println(name + " has no grandkids");
+
+        } else {
+
+            for (int i = 0; i < children.size(); i++) {
+                Person child = children.get(i);
+
+                if (child.children.isEmpty()) {
+                    System.out.println(name + " has no grandkids");
+
+                } else {
+                    System.out.println(name + " has grandkids!");
+                }
+            }
+        }
+    }
+
+
+//    Getters & Setters:
 
     public String getName() {
         return name;
@@ -135,5 +178,13 @@ public class Person {
 
     public List<Person> setParents() {
         return parents;
+    }
+
+    public List<Person> getSiblings() {
+        return siblings;
+    }
+
+    public void setSiblings(List<Person> siblings) {
+        this.siblings = siblings;
     }
 }

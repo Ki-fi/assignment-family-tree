@@ -1,44 +1,55 @@
 public class Main {
     public static void main(String[] args) {
 
-//        Persoon A
+//        Family members
 
-        Person a = new Person("Marianne", "Vaessen", "Female", 61);
-        a.addChild(new Person("Kiki", "Meekels", "Female", 34));
-        a.addChild(new Person("Sjoerd", "Meekels", "Male", 31));
-
-        a.personInformation();
-        a.printChildren();
-
-
-//        Persoon B
-
-        Person b = new Person("Emma", "Clemens", "Female", 84);
-        b.addChild(new Person("Marianne", "Vaessen", "Female", 61));
-        b.isDeceased = true;
-
-        b.personInformation();
-        b.printChildren();
+        Person kiki = new Person("Kiki", "Meekels", "Female", 34);
+        Person marianne = new Person("Marianne", "Vaessen", "Female", 61);
+        Person emma = new Person("Emma", "Clemens", "Female", 84);
+        Person rob = new Person("Rob", "Meekels", "Male", 59);
+        Person sjoerd = new Person("Sjoerd", "Meekels", "Male", 31);
+        Pet moes = new Pet("Moes", 4, "Cat");
 
 
-//        Persoon C
 
-        Person c = new Person("Rob", "Meekels", "Male", 59);
+//        Marianne
 
+        marianne.addChild(kiki);
+        marianne.addChild(sjoerd);
 
-//        Person D
-
-        Person d = a.getChildren().get(0);
-        d.personInformation();
-        d.printChildren();
-//        d.addParents(a, c);
-        d.printParents();
+        marianne.personInformation();
+        marianne.printChildren();
+        marianne.hasGrandKids(marianne);
 
 
-//        Pet
+//        Emma
 
-        Pet cat = new Pet("Moes", 4, "Cat");
-        cat.petInformation();
+        emma.addChild(marianne);
+        emma.isDeceased = true;
+
+        emma.personInformation();
+        emma.printChildren();
+
+        emma.hasGrandKids(emma);
+
+
+//        Kiki
+
+        kiki.personInformation();
+        kiki.printChildren();
+
+        kiki.addParents(marianne, rob);
+        kiki.printParents();
+
+        kiki.addSibling(sjoerd);
+        kiki.printSiblings();
+
+        kiki.addPet(moes);
+
+
+//        Moes
+
+        moes.petInformation();
 
     }
 }

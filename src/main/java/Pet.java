@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Pet {
@@ -6,7 +7,6 @@ public class Pet {
     int age;
     String species;
     String owner;
-    List<Pet> pets;
 
     public Pet(String name, int age, String species) {
         this.name = name;
@@ -16,10 +16,6 @@ public class Pet {
 
     public void petInformation(){
         System.out.println(species + " named " + name + ", " + age);
-    }
-
-    public void addPet(Pet animal) {
-        pets.add(animal);
     }
 
     public String getName() {
@@ -53,4 +49,5 @@ public class Pet {
     public void setOwner(String owner) {
         this.owner = owner;
     }
+
 }

@@ -32,8 +32,9 @@ public class Person {
         this.pets = new ArrayList<>();
     }
 
-    public void personInformation(){
+    public String personInformation(){
         System.out.println(name + " " + lastName + ", " + sex + ", " + displayAge());
+        return name + " " + lastName + ", " + sex + ", " + displayAge();
     }
 
     public String displayAge(){
@@ -48,15 +49,19 @@ public class Person {
         children.add(child);
     }
 
-    public void printChildren() {
+    public String printChildren() {
         if (children.isEmpty()) {
             System.out.println(name + " has no children.");
+            return name + " has no children.";
         } else {
+            String result = name + "'s children:";
             System.out.println(name + "'s children: ");
             for (int i = 0; i < children.size(); i++) {
                 Person child = children.get(i);
+                result = result + "- " + child.name;
                 System.out.println("- " + child.name);
             }
+            return result;
         }
     }
 

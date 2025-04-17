@@ -14,8 +14,9 @@ public class Pet {
         this.species = species;
     }
 
-    public void petInformation(){
+    public String petInformation(){
         System.out.println(species + " named " + name + ", " + age);
+        return species + " named " + name + ", " + age;
     }
 
     public String getName() {
